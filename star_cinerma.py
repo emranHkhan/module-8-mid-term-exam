@@ -2,7 +2,7 @@ class Star_Cinema:
     hall_list = []
 
     @classmethod
-    def entry_hall(self, hall_obj):
+    def _entry_hall(self, hall_obj):
         self.hall_list.append(hall_obj)
 
 
@@ -15,9 +15,9 @@ class Hall(Star_Cinema):
         self.show_list = []
         self.seats = {}
 
-        self.entry_hall(self)
+        self._entry_hall(self)
 
-    def entry_show(self, id, movie_name, time):
+    def _entry_show(self, id, movie_name, time):
         self.show_list.append((id, movie_name, time))
         matrix = [[0 for _ in range(self.cols)] for _ in range(self.rows)]
         self.seats[id] = matrix
@@ -44,7 +44,7 @@ class Hall(Star_Cinema):
         print(self.seats[id])
 
 hall = Hall(5,5,1)
-hall.entry_show(1, 'dune', '31-12-24')
+hall._entry_show(1, 'dune', '31-12-24')
 
 isRunning = True
 
